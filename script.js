@@ -1,3 +1,5 @@
+let allIssues = [];
+
 const login = () => {
     const username = document.getElementById('username').value;
     const password = document.getElementById('password').value;
@@ -12,33 +14,118 @@ const login = () => {
 };
 
 
-// category button
+async function fetchIssue() {
+    try {
+        const response = await fetch("https://phi-lab-server.vercel.app/api/v1/lab/issues");
+        const data = await response.json();
+        allIssues = data.data;
+        display(allIssues);
+            
+    } catch (error) {
+        console.error("Didn't get the data", error);
+    }
+}
 
-// const button = () => {
-//     const all = document.getElementById('all-btn');
-//     const open = document.getElementById('open-btn');
-//     const close = document.getElementById('close-btn');
+const display = (param) => {
+    let priorityTag;
+    const container = document.getElementById('issue-container');
+    container.innerHTML = ''; 
+    let count = 0;
+    param.forEach(issue => {
+            count ++;
+            if(issue.priority === "high"){
+                    priorityTag = `<span class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-semibold border border-red-100 uppercase">
+                            ${issue.priority}
+                        </span>`
+                }
 
-//     const btn = document.addEventListener('click',(event) => {
+                else if(issue.priority === "medium"){
+                    priorityTag = `<span class="px-3 py-1 bg-amber-50 text-amber-600 rounded-full text-xs font-semibold border border-amber-100 uppercase">
+                    ${issue.priority}
+                    </span>`
+                }
 
-//         if(event.target.id === open){
-//             open.classList.add('bg-[#4A00FF]', 'text-white');
-//             all.classList.add('text-gray-700', 'border-gray-200' , 'bg-white');
-//             close.classList.add('text-gray-700', 'border-gray-200' , 'bg-white');
-//         }
+                else{
+                    priorityTag = `<span class="px-3 py-1 bg-gray-100 text-gray-600 rounded-full text-xs font-semibold border border-gray-100 uppercase">
+                    ${issue.priority}
+                    </span>`
+                }
+                
+            if(issue.status === 'open'){
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-xl shadow-sm border-t-4 border-green-300";
+                
+                const labelTags = issue.labels.map(label => `
+                    <span class="px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full text-[12px] font-semibold uppercase">
+                        ${label}
+                    </span>
+                `).join('');
 
-//         else if(event.target.id === close){
-//             close.classList.add('bg-[#4A00FF]', 'text-white');
-//             all.classList.add('text-gray-700', 'border-gray-200' , 'bg-white');
-//             open.classList.add('text-gray-700', 'border-gray-200' , 'bg-white');
-//         }
-//         else if(event.target.id === all){
-//             all.classList.add('bg-[#4A00FF]', 'text-white');
-//             close.classList.add('text-gray-700', 'border-gray-200' , 'bg-white');
-//             open.classList.add('text-gray-700', 'border-gray-200' , 'bg-white');
-//         }
-//     })
-// };
+                
+                
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <div class="w-8 h-8 rounded-full flex items-start justify-center">
+                            <img src="assets/open.svg"/>
+                            </div>
+                        </div>
+                        ${priorityTag}
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 mb-2 leading-tight">${issue.title}</h3>
+                    <p class="text-sm text-gray-500 mb-4 leading-relaxed">${issue.description}</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${labelTags}
+                    </div>
+                    
+                    <div class="pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400">
+                        <span>#${issue.id} by ${issue.author}</span>
+                        <span>${new Date(issue.createdAt).toLocaleDateString()}</span>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+
+            } 
+            else { 
+                const card = document.createElement('div');
+                card.className = "bg-white p-5 rounded-xl shadow-sm border-t-4 border-[#A755F7]";
+
+                const labelTags = issue.labels.map(label => `
+                    <span class="px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full text-[12px] font-semibold uppercase">
+                        ${label}
+                    </span>
+                `).join('');
+
+                card.innerHTML = `
+                    <div class="flex justify-between items-start mb-3">
+                        <div>
+                            <div class="w-8 h-8 rounded-full flex items-start justify-center">
+                            <img src="assets/close.svg"/>
+                            </div>
+                        </div>
+                        ${priorityTag}
+                    </div>
+                    <h3 class="text-base font-bold text-gray-900 mb-2 leading-tight">${issue.title}</h3>
+                    <p class="text-sm text-gray-500 mb-4 leading-relaxed">${issue.description}</p>
+                    
+                    <div class="flex flex-wrap gap-2 mb-4">
+                        ${labelTags}
+                    </div>
+                    
+                    <div class="pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400">
+                        <span>#${issue.id} by ${issue.author}</span>
+                        <span>${new Date(issue.createdAt).toLocaleDateString()}</span>
+                    </div>
+                `;
+                
+                container.appendChild(card);
+            }
+            const num = document.getElementById('issue-number');
+            num.innerText = `${count} Issues`
+        });
+};
 
 
 const button = (event) => {
@@ -53,5 +140,18 @@ const button = (event) => {
     });
     event.target.classList.remove('bg-white', 'text-gray-700', 'border-gray-200');
     event.target.classList.add('bg-[#4A00FF]', 'text-white', 'border-none');
+
+    const filter = event.target.innerText;
+    if(filter === "All"){
+        display(allIssues);
+    }
+
+    else if(filter === "Open"){
+        display(allIssues.filter(issue => issue.status === 'open'));
+    }
+    else if(filter === "Closed"){
+        display(allIssues.filter(issue => issue.status === 'closed'));
+    }
 };
 
+fetchIssue();
