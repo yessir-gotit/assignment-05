@@ -1,0 +1,96 @@
+<!DOCTYPE html>
+<html lang="en" data-theme="light">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Main Page - Github Issues Tracker</title>
+    <link rel="stylesheet" href="styles.css">
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Geist:wght@100..900&family=Inter:ital,opsz,wght@0,14..32,100..900;1,14..32,100..900&display=swap" rel="stylesheet">
+
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5" rel="stylesheet" type="text/css" />
+    <script src="https://cdn.jsdelivr.net/npm/@tailwindcss/browser@4"></script>
+    <link href="https://cdn.jsdelivr.net/npm/daisyui@5/themes.css" rel="stylesheet" type="text/css" />
+</head>
+<body class="min-h-screen bg-base-200">
+
+    <!-- Navbar -->
+    <nav>
+        <div class="bg-white shadow-sm">
+            <div class="w-full max-w-6xl mx-auto px-4 py-4 flex flex-col sm:flex-row items-center justify-between gap-4">
+                
+                <!-- Logo & Title -->
+                <div class="flex items-center gap-3">
+                    <img src="assets/github-logo.png" alt="GitHub Logo" class="w-10 h-10">
+                    <h1 class="text-xl font-bold">GitHub Issues Tracker</h1>
+                </div>
+
+                <!-- Search & Button -->
+                <div class="flex items-center gap-3 w-full sm:w-auto">
+                    <input type="text" placeholder="Search issues..." class="input input-bordered w-full sm:w-64 h-10" />
+                    <button class="btn bg-[#4A00FF] hover:bg-[#5c1ff7] text-white border-none ">+ New Issue</button>
+                </div>
+            </div>
+        </div>
+    </nav>
+    
+
+    
+    <main>
+        <div class="w-full max-w-6xl mx-auto p-5 ">
+        
+            <!-- Filter Tabs -->
+            <div class="flex gap-2 mb-6 p-4 bg-white shadow-sm rounded-2xl">
+                <button class="btn btn-sm bg-[#4A00FF] text-white border-none px-12 py-5">All</button>
+                <button class="btn btn-sm bg-white text-gray-700 border-gray-200 hover:bg-gray-50 px-12 py-5">Open</button>
+                <button class="btn btn-sm bg-white text-gray-700 border-gray-200 hover:bg-gray-50 px-12 py-5">Closed</button>
+            </div>
+
+            <!-- Issue Head -->
+            <div class="bg-white rounded-t-2xl shadow-xl p-6 sm:p-8 w-full">
+                
+                <!-- Header Section -->
+                <div class="flex flex-col sm:flex-row justify-between items-start sm:items-center gap-4">
+                    
+                    <!--Image & Text -->
+                    <div class="flex items-center gap-4">
+                        <div class="w-15 h-15 bg-[#ECE4FF] rounded-[1000px] flex justify-center items-center">
+                            <img src="assets/Aperture.png" alt="Issues Icon" class='w-8 h-8'>
+                        </div>
+                        
+                        <div>
+                            <h2 class="text-2xl font-bold">50 Issues</h2>
+                            <p class="text-base-content/60">Track and manage your project issues</p>
+                        </div>
+                    </div>
+
+                    <!-- Badges -->
+                    <div class="flex gap-3">
+                        <div class="flex items-center gap-2 text-sm font-medium text-green-600 bg-green-50 px-3 py-1 rounded-full">
+                            <span class="w-2 h-2 bg-green-500 rounded-full"></span>
+                            Open
+                        </div>
+                        <div class="flex items-center gap-2 text-sm font-medium text-purple-600 bg-purple-50 px-3 py-1 rounded-full">
+                            <span class="w-2 h-2 bg-purple-500 rounded-full"></span>
+                            Closed
+                        </div>
+                    </div>
+                </div>
+
+            </div>
+
+            <!-- Issue Body -->
+            <div class="bg-base-300 shadow-sm rounded-b-2xl p-5 border-t-2 border-gray-200">
+
+            </div>
+
+        </div>
+
+    </main>
+    
+
+    <script src="script.js"></script>
+</body>
+</html>
