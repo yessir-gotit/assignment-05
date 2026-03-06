@@ -43,7 +43,8 @@
                     <input 
                         type="text" 
                         placeholder="Enter Username" 
-                        class="input input-bordered w-full h-12 bg-base-100 border-base-300 focus:border-primary"/>
+                        class="input input-bordered w-full h-12 bg-base-100 border-base-300 focus:border-primary"
+                        id="username"/>
                 </div>
 
                 <div class="form-control mb-6">
@@ -54,10 +55,11 @@
                         type="password" 
                         placeholder="Enter Password" 
                         class="input input-bordered w-full h-12 bg-base-100 border-base-300 focus:border-primary"
+                        id="password"
                     />
                 </div>
 
-                <button type="submit" class="btn btn-primary w-full h-12 text-base font-medium">
+                <button type="button" class="btn btn-primary w-full h-12 text-base font-medium" onclick="login()">
                     Sign In
                 </button>
             </form>
