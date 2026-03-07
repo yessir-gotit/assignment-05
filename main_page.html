@@ -52,8 +52,77 @@
         <!-- Issue body -->
         <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-4 bg-gray-100 p-5 rounded-b-2xl border border-gray-100 border-t-0" id="issue-container">      
         </div>
+
+
+        
     </main>
     
+
+    <!-- Modal -->
+        <dialog id="issue_modal" class="modal">
+            <div class="modal-box bg-white rounded-2xl p-0 w-11/12 max-w-2xl shadow-2xl">
+                <!-- modal Header -->
+                <div class="p-6 ">
+                    <div class="flex justify-between items-start gap-4">
+                        <h3 class="text-2xl font-bold text-gray-900" id="modal-title">Issue Title</h3>
+                        <div class="flex-shrink-0">
+                            <span id="modal-status" class="px-3 py-1  rounded-full text-xs font-semibold border border-green-100 uppercase">
+                               
+                            </span>
+                        </div>
+                    </div>
+                    <p class="text-sm text-gray-500 mt-2">
+                        Created by 
+                        <span id="modal-author" class="font-medium text-gray-700">
+                            Author Name
+                        </span> on <span id="modal-date">Date</span>
+                    </p>
+                    
+                    <div class="flex flex-wrap gap-2 mt-4" id="modal-labels">
+ 
+                    </div>
+                </div>
+                <!-- Modal Body -->
+                <div class="p-6 space-y-6">
+                    <div>
+                        <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Description</h4>
+                        <p class="text-gray-600 leading-relaxed text-sm" id="modal-description">
+
+                        </p>
+                    </div>
+
+
+                    <!-- Modal footer -->
+                    <div class="grid grid-cols-2 gap-6 bg-gray-50 p-4 rounded-xl">
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Assignee</h4>
+                            <div class="flex items-center gap-2">
+                                <span class="font-bold text-gray-800 text-sm capitalize" id="modal-assignee">
+                                
+                                </span>
+                            </div>
+                        </div>
+                        <div>
+                            <h4 class="text-xs font-bold text-gray-400 uppercase tracking-wider mb-2">Priority</h4>
+                            <span id="modal-priority" class="px-3 py-1 bg-red-50 text-red-600 rounded-full text-xs font-semibold border border-red-100 uppercase">
+                            
+                            </span>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="p-6 border-t border-gray-100 flex justify-end">
+                    <form method="dialog">
+                        <button class="btn bg-[#A755F7] hover:bg-[#9644e0] text-white border-none px-6 shadow-md">
+                            Close
+                        </button>
+                    </form>
+                </div>
+            </div>
+            <form method="dialog" class="modal-backdrop">
+                <button>close</button>
+            </form>
+        </dialog>   
     <script src="script.js"></script>
 </body>
 </html>
