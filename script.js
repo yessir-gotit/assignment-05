@@ -53,7 +53,7 @@ const display = (param) => {
                 
             if(issue.status === 'open'){
                 const card = document.createElement('div');
-                card.className = "bg-white p-5 rounded-xl shadow-sm border-t-4 border-green-300";
+                card.className = "bg-white p-5 rounded-xl shadow-sm border-t-4 border-green-300 h-full flex flex-col";
                 
                 const labelTags = issue.labels.map(label => `
                     <span class="px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full text-[12px] font-semibold uppercase">
@@ -79,7 +79,7 @@ const display = (param) => {
                         ${labelTags}
                     </div>
                     
-                    <div class="pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400">
+                    <div class="pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400 mt-auto">
                         <span>#${issue.id} by ${issue.author}</span>
                         <span>${new Date(issue.createdAt).toLocaleDateString()}</span>
                     </div>
@@ -90,7 +90,7 @@ const display = (param) => {
             } 
             else { 
                 const card = document.createElement('div');
-                card.className = "bg-white p-5 rounded-xl shadow-sm border-t-4 border-[#A755F7]";
+                card.className = "bg-white p-5 rounded-xl shadow-sm border-t-4 border-[#A755F7] h-full flex flex-col";
 
                 const labelTags = issue.labels.map(label => `
                     <span class="px-2.5 py-1 bg-blue-50 text-blue-600 rounded-full text-[12px] font-semibold uppercase">
@@ -114,7 +114,7 @@ const display = (param) => {
                         ${labelTags}
                     </div>
                     
-                    <div class="pt-3 border-t border-gray-100 flex justify-between items-center text-xs text-gray-400">
+                    <div class="pt-3 border-t border-gray-100 flex justify-between items-end text-xs text-gray-400 mt-auto">
                         <span>#${issue.id} by ${issue.author}</span>
                         <span>${new Date(issue.createdAt).toLocaleDateString()}</span>
                     </div>
@@ -122,9 +122,11 @@ const display = (param) => {
                 
                 container.appendChild(card);
             }
-            const num = document.getElementById('issue-number');
-            num.innerText = `${count} Issues`
+            
         });
+
+        const num = document.getElementById('issue-number');
+        num.innerText = `${count} Issues`
 };
 
 
@@ -156,5 +158,36 @@ const button = (event) => {
 
 
 
+// Search Function
+
+const searchInput = document.getElementById('search');
+
+searchInput.addEventListener('keydown', (event) => {
+    if (event.key === 'Enter'){
+        const searchResult = searchInput.value.trim();
+
+        if(searchResult === ""){
+            fetchIssue();
+            return;
+        }
+
+        searchFetch(searchResult);
+    }
+
+    
+});
+
+async function searchFetch(param){
+    try{
+        const fetchData = await fetch(`https://phi-lab-server.vercel.app/api/v1/lab/issues/search?q=${param}`);
+        const response = await fetchData.json();
+        const result = response.data;
+
+        display(result);
+    }
+    catch(error){
+        console.error("FAILED" , error);
+    }
+}
 
 fetchIssue();
