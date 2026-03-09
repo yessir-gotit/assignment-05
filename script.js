@@ -183,7 +183,11 @@ const modal = (issue) => {
     // Set basic text
     document.getElementById('modal-title').innerText = issue.title;
     document.getElementById('modal-description').innerText = issue.description;
-    document.getElementById('modal-author').innerText = issue.author;
+    
+    document.getElementById('modal-author').innerHTML = `• <span class = "font-normal"> Opened By</span> ${issue.author}`;
+    if (issue.status === 'closed'){
+        document.getElementById('modal-author').innerHTML = `• <span class = "font-normal"> Closed By</span> ${issue.author}`;
+    }
     document.getElementById('modal-assignee').innerText = issue.author; 
     
     // Set Date
