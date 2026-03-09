@@ -209,10 +209,10 @@ const modal = (issue) => {
     const statusTag = document.getElementById('modal-status');
     if(issue.status === 'open'){
         statusTag.innerText = "Opened";
-        statusTag.className = "px-3 py-1 bg-green-50 text-green-600 rounded-full text-xs font-semibold border border-green-100 uppercase";
+        statusTag.className = "px-3 py-1 bg-green-50 text-green-600 rounded-full text-xs font-semibold border border-green-100 uppercase sm:mb-1 inline-block";
     } else {
         statusTag.innerText = "Closed";
-        statusTag.className = "px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs font-semibold border border-purple-100 uppercase";
+        statusTag.className = "px-3 py-1 bg-purple-50 text-purple-600 rounded-full text-xs font-semibold border border-purple-100 uppercase sm:mb-1 inline-block";
     }
 
     // Set Labels
