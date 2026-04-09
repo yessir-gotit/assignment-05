@@ -1,11 +1,81 @@
-# assignment-05
+# 🚀 GitHub Issues Tracker
 
-1. var is function scope, that means you can declare it anywhere in the function and it can be used anywhere on that function, let is block scope which means if you declare the variable inside a for loop then you can't output it of that variable outside the for loop. const is also same as let but the value of const is immutable.
+A modern, responsive, and high-performance **GitHub Issues Tracker** dashboard. This application allows users to search, filter, and view project issues with a clean and intuitive user interface inspired by GitHub's own design system.
 
-2. spread operator is like a packed suitcase, it spreads the element of an array and object, suppose we wanna merge 2 arrays like [1,4] and [3,5]. If I wanna merge the first array into second one, then I can use second = [3, ...first , 5] now the output will be [3,1,4,5]. It simplifies many complex problems.
+---
 
-3. on foreach loop we can perform an action on an array but the original array would be unaffected and on the map() we can perform actions but it can create a new array based on that action and the filter() just filters an array based on specific conditions
+## 🔗 Live Links & Preview
 
-4. It's a modern and shorter way to write functions, it makes the code readable. It also has implicit return so that we don't have to return anything like normal functions also it's lexical scope which means in normal function the outer one can't see in the inner function but on the lexical thing, it can see its surrounding code and run based on that
+* **Live Demo:** [View Live Site](https://yessir-gotit.github.io/Github-Issue-Tracker/)
+* **Repository:** [https://github.com/yessir-gotit/Github-Issue-Tracker](https://github.com/yessir-gotit/Github-Issue-Tracker)
 
-5. template literals is a powerful and modernized way to handle strings in js. before that the code used to look ugly, and we had to use + operator for variable but now we can use ${} for variable which is easy to read and easier for scalibility. It's 1:1 for on code and output
+
+---
+
+## 📖 Project Overview
+
+This project is a frontend-driven issue management dashboard. It aims to provide a seamless experience for developers to track project progress. Users can instantly filter issues based on status (Open/Closed) or use the real-time search bar to find specific tasks. The UI is built using **DaisyUI v5** for premium components like modals and badges, ensuring a professional feel.
+
+---
+
+## 🛠️ Technology Stack
+
+* **HTML5:** Semantic structure for accessibility.
+* **Tailwind CSS (v4):** Modern utility-first CSS framework for rapid styling.
+* **DaisyUI (v5):** Tailwind-based component library for modals, buttons, and layouts.
+* **JavaScript (ES6):** Logic for real-time search, category filtering, and modal data injection.
+* **Google Fonts:** Utilizing 'Geist' and 'Inter' for high-readability typography.
+
+---
+
+## ✨ Key Features
+
+* **🔍 Real-time Search:** Filter through the issues list instantly as you type.
+* **🏷️ Category Filtering:** Easily switch between **All**, **Open**, and **Closed** issues.
+* **🖥️ Detail Modals:** Click on any issue to see an expanded view containing descriptions, assignees, and priorities.
+* **📱 Fully Responsive:** Works perfectly on mobile, tablet, and desktop devices.
+* **🎨 Modern UI:** Sleek cards, smooth transitions, and a clean color palette.
+
+---
+
+## 📦 Dependencies
+
+The project is built to be lightweight and uses CDN-based links for easy management:
+
+* **Tailwind CSS Browser Client:** `@tailwindcss/browser@4`
+* **DaisyUI Styles:** `daisyui@5`
+* **Icons:** Custom SVG and local assets.
+
+---
+
+## 💻 Local Installation & Setup
+
+To run this project locally, follow these simple steps:
+
+1.  **Clone the repository:**
+    ```bash
+    git clone [https://github.com/yessir-gotit/Github-Issue-Tracker.git](https://github.com/yessir-gotit/Github-Issue-Tracker.git)
+    ```
+
+2.  **Navigate to the folder:**
+    ```bash
+    cd Github-Issue-Tracker
+    ```
+
+3.  **Open the project:**
+    * Simply open `index.html` in your preferred web browser.
+    * *Recommended:* Use the **Live Server** extension in VS Code for the best development experience.
+
+---
+
+## 👨‍💻 Author
+
+**Nafij**
+
+* **GitHub:** [@yessir-gotit](https://github.com/yessir-gotit)
+* **LinkedIn:** [Sofikul Hossain](https://www.linkedin.com/in/sofikul-hossain)
+
+---
+
+### **Repository Description (Add this to GitHub About Section):**
+A modern GitHub Issues Tracker dashboard built with Tailwind CSS v4, DaisyUI v5, and JavaScript. Features real-time search, status filtering, and interactive modals. 🔗 Live: https://yessir-gotit.github.io/Github-Issue-Tracker/
