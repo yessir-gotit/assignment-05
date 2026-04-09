@@ -54,7 +54,7 @@ To run this project locally, follow these simple steps:
 
 1.  **Clone the repository:**
     ```bash
-    git clone [https://github.com/yessir-gotit/Github-Issue-Tracker.git](https://github.com/yessir-gotit/Github-Issue-Tracker.git)
+    git clone https://github.com/yessir-gotit/Github-Issue-Tracker.git
     ```
 
 2.  **Navigate to the folder:**
@@ -73,7 +73,7 @@ To run this project locally, follow these simple steps:
 **Nafij**
 
 * **GitHub:** [@yessir-gotit](https://github.com/yessir-gotit)
-* **LinkedIn:** [Sofikul Hossain](https://www.linkedin.com/in/sofikul-hossain)
+* **LinkedIn:** [Sofikul Hossain](www.linkedin.com/in/sofikul-hossain)
 
 ---
 
