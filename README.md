@@ -73,7 +73,7 @@ To run this project locally, follow these simple steps:
 **Nafij**
 
 * **GitHub:** [@yessir-gotit](https://github.com/yessir-gotit)
-* **LinkedIn:** [Sofikul Hossain](www.linkedin.com/in/sofikul-hossain)
+* **LinkedIn:** [Sofikul Hossain](https://www.linkedin.com/in/sofikul-hossain)
 
 ---
 
